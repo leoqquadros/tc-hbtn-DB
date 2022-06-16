@@ -62,12 +62,24 @@ public class GestaoCursosMain {
         curso.setSigla("MAT");
         curso.setMaterialCurso(materialC);
         curso.setProfessor(professor);
-
+        curso.setAlunos(List.of(aluno));
         CursoModel cursoModel = new CursoModel();
         cursoModel.create(curso);
 
+        // Persistindo dados de Aluno_Telefone
 
+        Telefone telefone = new Telefone();
+        telefone.setNumero("988997311");
+        telefone.setDDD("71");
+        telefone.setAluno(aluno);
 
+        TelefoneModel telefoneModel = new TelefoneModel();
+        telefoneModel.create(telefone);
+        aluno.setTelefones(List.of(telefone));
+        alunoModel.update(aluno);
+
+        aluno.setCursos(List.of(curso));
+        alunoModel.update(aluno);
 
 
     }

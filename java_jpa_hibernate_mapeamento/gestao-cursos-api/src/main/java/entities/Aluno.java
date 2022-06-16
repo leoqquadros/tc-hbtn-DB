@@ -23,6 +23,18 @@ public class Aluno {
     @OneToMany
     private List<Endereco> enderecos;
 
+    @ManyToMany
+    @JoinColumn(name = "curso_id")
+    private List<Curso> cursos;
+
+    public List<Curso> getCursos() {
+        return cursos;
+    }
+
+    public void setCursos(List<Curso> cursos) {
+        this.cursos = cursos;
+    }
+
     public Long getId() {
         return id;
     }

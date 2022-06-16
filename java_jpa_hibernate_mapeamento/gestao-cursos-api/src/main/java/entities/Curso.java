@@ -20,12 +20,10 @@ public class Curso {
     private MaterialCurso materialCurso;
 
     @ManyToMany
-    @JoinTable(
-            name = "aluno_curso",
-            joinColumns = @JoinColumn(name = "curso_id", referencedColumnName = "ID"),
-            inverseJoinColumns = @JoinColumn(name = "aluno_id", referencedColumnName = "ID")
-    )
+    @JoinColumn(name = "aluno_id")
     private List<Aluno> alunos;
+
+
 
     public Long getId() {
         return id;
